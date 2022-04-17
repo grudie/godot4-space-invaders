@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://h5efq84hg3oq"]
+
+[ext_resource type="Texture2D" uid="uid://di34jpq8i14je" path="res://assets/playerShip1_blue.png" id="1_4rl8e"]
+[ext_resource type="Script" path="res://Game.gd" id="1_g5e6q"]
+[ext_resource type="Texture2D" uid="uid://ly0b8l4fkcyp" path="res://assets/background.jpg" id="1_y0wor"]
+[ext_resource type="Texture2D" uid="uid://budngp7bfh54k" path="res://assets/fire16.png" id="2_lm225"]
+[ext_resource type="Script" path="res://Nave.gd" id="2_u2br8"]
+[ext_resource type="PackedScene" uid="uid://cf6hcrjs1246f" path="res://Enemy.tscn" id="5_vrfwx"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( "1_g5e6q" )
+metadata/_edit_horizontal_guides_ = []
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(508.236, 311.5)
+scale = Vector2(0.614146, 0.614146)
+texture = ExtResource( "1_y0wor" )
+metadata/_edit_lock_ = true
+
+[node name="Nave" type="Sprite2D" parent="."]
+position = Vector2(424, 499)
+texture = ExtResource( "1_4rl8e" )
+script = ExtResource( "2_u2br8" )
+
+[node name="FireLeft" type="Sprite2D" parent="Nave"]
+position = Vector2(-85, 10)
+rotation = -1.5708
+scale = Vector2(2, 2)
+texture = ExtResource( "2_lm225" )
+
+[node name="FireRight" type="Sprite2D" parent="Nave"]
+position = Vector2(84, 10)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource( "2_lm225" )
+
+[node name="Enemy" parent="." instance=ExtResource( "5_vrfwx" )]
+position = Vector2(191, 81)
+
+[node name="Enemy2" parent="." instance=ExtResource( "5_vrfwx" )]
+position = Vector2(303, 81)
+
+[node name="Enemy3" parent="." instance=ExtResource( "5_vrfwx" )]
+position = Vector2(417, 81)
+
+[node name="Enemy4" parent="." instance=ExtResource( "5_vrfwx" )]
+position = Vector2(525, 82)
+
+[node name="Score" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(3, 3)
+text = "Score: 0"

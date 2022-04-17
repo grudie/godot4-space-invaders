@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://caok8frnccq7i"]
+
+[ext_resource type="Texture2D" uid="uid://bhm1fqtqkx85t" path="res://assets/laserBlue02.png" id="1_4qmtc"]
+[ext_resource type="Script" path="res://Laser.gd" id="2_b0boc"]
+[ext_resource type="AudioStream" uid="uid://cdvewwwbeh7ns" path="res://assets/fx_laser.wav" id="3_smmat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vi8jh"]
+size = Vector2(12, 38)
+
+[node name="Laser" type="Area2D"]
+script = ExtResource( "2_b0boc" )
+
+[node name="FxLaser" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( "3_smmat" )
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource( "1_4qmtc" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( "RectangleShape2D_vi8jh" )
